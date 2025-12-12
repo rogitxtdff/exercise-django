@@ -1,0 +1,105 @@
+# ──────────────────────────────────────
+# Django & Python
+# ──────────────────────────────────────
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# محیط مجازی
+venv/
+env/
+.venv/
+ENV/
+env/
+venv*/
+.env
+
+# فایل دیتابیس محلی
+db.sqlite3
+db.sqlite3-journal
+
+# فایل‌های تنظیمات محلی و حساس
+*.local
+local_settings.py
+settings_local.py
+.env
+.env.local
+.env.production
+.env.staging
+
+# پوشه‌های مهاجرت‌های قدیمی (اگر لازم نداری)
+*/migrations/__pycache__/
+*/migrations/0001_initial.py  # فقط اگه از اول خودت نوشتی و نمی‌خوای تو گیت باشه
+
+# فایل‌های لاگ و کش
+*.log
+logs/
+*.log.*
+
+# پوشه‌های آپلود و مدیا (عکس، فایل و ...)
+media/
+media/*
+!media/.gitkeep   # اگه خواستی پوشه خالی بمونه
+
+# پوشه‌های استاتیک جمع‌آوری شده
+staticfiles/
+static/
+collected_static/
+
+# فایل‌های بک‌آپ و موقت
+*.bak
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+# PyCharm / VSCode / IDEها
+.idea/
+.vscode/
+*.sublime-*
+*.code-workspace
+
+# Celery
+celerybeat.pid
+celeryd.pid
+
+# Coverage و تست
+htmlcov/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.tox/
+.pytest_cache/
+
+# Pip و وابستگی‌ها
+pip-log.txt
+pip-delete-this-directory.txt
+pip-wheel-metadata/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Ruff / Black / Pre-commit cache
+.ruff_cache/
+
+# Docker (اگر داری)
+.docker/
+docker-compose.override.yml
+
+# فایل‌های شخصی و موقت
+tmp/
+temp/
+*.tmp
+*.temp

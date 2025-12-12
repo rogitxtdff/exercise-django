@@ -11,4 +11,4 @@ class Category(models.Model):
     class Meta:
         verbose_name = "دسته‌بندی"
         verbose_name_plural = "دسته‌بندی‌ها"
-        ordering = ['farsi']  # مرتب‌سازی بر اساس نام فارسی
+        ordering = ['farsi'] 

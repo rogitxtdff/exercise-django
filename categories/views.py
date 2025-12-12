@@ -5,7 +5,6 @@ from django.views import View
 import json
 from .models import Category
 
-# تابع کمکی برای تبدیل آبجکت Category به دیکشنری
 def category_to_dict(category):
     return {
         'id': category.id,
@@ -13,29 +12,28 @@ def category_to_dict(category):
         'english': category.english
     }
 
-# کلاس برای مدیریت لیست دسته‌بندی‌ها (GET همه, POST جدید)
+
 @method_decorator(csrf_exempt, name='dispatch')
 class CategoryListView(View):
     
     def get(self, request):
-        """GET: دریافت لیست همه دسته‌بندی‌ها"""
+        
         categories = Category.objects.all()
         category_list = [category_to_dict(category) for category in categories]
         return JsonResponse(category_list, safe=False, status=200)
     
     def post(self, request):
-        """POST: ساخت دسته‌بندی جدید"""
+        
         try:
             data = json.loads(request.body)
             
-            # بررسی وجود فیلدهای ضروری
             if not data.get('farsi') or not data.get('english'):
                 return JsonResponse(
                     {'error': 'فیلدهای farsi و english الزامی هستند'}, 
                     status=400
                 )
             
-            # ساخت دسته‌بندی جدید
+         
             new_category = Category.objects.create(
                 farsi=data['farsi'],
                 english=data['english']
@@ -48,7 +46,7 @@ class CategoryListView(View):
         except Exception as e:
             return JsonResponse({'error': str(e)}, status=400)
 
-# کلاس برای مدیریت یک دسته‌بندی خاص (GET, PUT, DELETE)
+
 @method_decorator(csrf_exempt, name='dispatch')
 class CategoryDetailView(View):
     
@@ -78,7 +76,7 @@ class CategoryDetailView(View):
         try:
             data = json.loads(request.body)
             
-            # آپدیت فیلدها
+              
             if 'farsi' in data:
                 category.farsi = data['farsi']
             
